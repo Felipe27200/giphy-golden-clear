@@ -1,0 +1,17 @@
+<div class="flex justify-content-center mt-3" *ngIf="dataEmpty == 'yes'">
+    <p-card styleClass="text-red-600 bg-red-100" header="¡Sin resultados!">
+        <p class="m-0 font-semibold">
+            No se encontraron resultados en su búsqueda!!!
+        </p>
+    </p-card>
+</div>
+
+<div class="flex flex-wrap grid mt-3">
+    <div class="col-4" *ngFor="let gif of listGif">
+        <p-card id="card-gif">
+            <ng-template pTemplate="header" class="m-0 p-0">
+                <img alt="Card" [src]="gif.images.downsized.url"/>
+            </ng-template>
+        </p-card>
+    </div>
+</div>

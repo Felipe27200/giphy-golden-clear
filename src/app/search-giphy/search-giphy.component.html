@@ -1,0 +1,28 @@
+<form [formGroup]="giphyForm" class="grid flex justify-content-center" (ngSubmit)="onSubmit()">
+    <div class="col-5 mt-4">
+        <div class="field w-full">
+            <label class="text-white" for="search">Buscar GIF:</label>
+            <input 
+              id="search"
+              type="text" 
+              pInputText 
+              class="w-full" 
+              formControlName="search"
+            />
+        </div>
+
+        <button 
+          pButton 
+          type="submit" 
+          class="p-button-info p-button-sm align-bottom w-full"
+          label="Buscar GIF" 
+          [disabled]="!giphyForm.valid">
+        </button>
+
+        <div *ngIf="search!.invalid && (search!.dirty || search!.touched)" class="ng-invalid ng-dirty mt-2">
+            <div *ngIf="search!.errors?.['required']" class="p-error block text-xs">
+                *Debe ingresar un texto para buscar el GIF
+            </div>                    
+        </div>
+    </div>
+</form>
